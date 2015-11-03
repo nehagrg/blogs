@@ -21,7 +21,43 @@ hello
   	            }  
   	         th{
   	         	text-align: left;
-  	            }     
+  	            } 
+  	         div{
+  	         	height:450px;
+  	         	width:400px;
+  	         	
+  	         }   
+  	         table#div{
+  	         	      background-color: red;
+  	         }
+  	        div#header{
+  	        	      background-color: red;
+  	        	      padding: 10px;
+  	        	      height:100px;
+  	        	      width:400px;
+  	        	      text-align: center;
+    	              }
+    	    div#nav{
+    	    	    background-color: lightgrey; 
+    	    	    padding:10px;
+    	    	    height:300px;
+    	    	    width:150px;
+    	    	  } 
+    	    div#section{
+    	         	background-color: lightgrey; 
+    	    	    padding:10px;
+    	    	    height:300px;
+    	    	    width:250px
+    	    	     }
+    	    div#footer{
+    	    	      background-color: red;
+  	        	      padding: 10px;
+  	        	      height:50px;
+  	        	      width:400px;
+  	        	      text-align: center;
+    	              }
+
+    	      
   	    </style>
   </head>
   <body  style="background-color:purple">	
@@ -78,8 +114,40 @@ hello
         	<td>shyam</td>
         	<td>tester</td>
         </tr>
-    </table>
-
-    
+    </table><br>
+    <div>
+    	<table id="div" width="400px" background-color="red"s>
+    	   <tr>
+    	     <td   width="500px" colspan=2>
+               <div id="header">
+    	         <h1> ruby on rails<h2>
+    	  	   </div>
+    	     </td>
+    	   </tr>
+           <tr>
+             <td   width="100px" border-space="collapse">
+               <div id ="nav">
+                 <h3>ruby</h3>
+                 <h3>rails</h3>
+                 <h3>postgresql</h3>
+               </div>
+             </td>
+             <td     width="200px">
+               <div  id="section">
+                 <p>ruby is a object oriented programming language.</p>
+                 <p>rails provides the framework for developing web application using ruby programming language</p>
+                 <p>postgresql is a structure query language</p>
+               </div>
+             </td>
+           </tr>
+           <tr>
+	         <td   width="400px" colspan=2>
+               <div id="footer">
+                 <a href="http://www.w3schools.com/">w3school.com</a>
+               </div> 
+             </td>  
+           </tr>       		
+        </table>
+    <div>
   </body>
 </html>    
