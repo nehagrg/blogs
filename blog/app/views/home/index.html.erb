@@ -3,26 +3,30 @@
   <head>
   	  <titlt>home page</title>
   	  	<style>
+        
   	  	  #form{
   	  	  	
   	  	    height:200px;
   	  	    width:200px;
-  	  	    border:1;
+  	  	    border:5px orange;
   	        border-color:orange;
   	        margin-left: 520px
   	           }
-  	       table,th,td{
+  	        table,th,td{
   	       	border:1px solid black;
-  	       	border-collapse: collapse;
-  	                   }
-  	        table{           
-  	       	height:200px;
-  	  	    width:200px;
-  	  	    margin-left: 520px
+  	       	border-collapse: collapse; 
+            
+  	                   } 
+  	        table{  
+            border: 10px solid blue;         
+  	       	height:400px;
+  	  	    width:400px;
+  	  	    margin-left: 420px
   	            }  
   	         th{
   	         	text-align: left;
-  	            } 
+  	            }
+
   	         div{
   	         	height:450px;
   	         	width:400px;
@@ -49,6 +53,9 @@
     	    	    padding:10px;
     	    	    height:300px;
     	    	    width:250px
+                border-collapse:collapse;
+                left-margin:0px;
+                text-align: justify;
     	    	     }
     	    div#footer{
     	    	      background-color: red;
@@ -58,9 +65,21 @@
   	        	      text-align: center;
     	              }
 
-    	      
-  	    </style>
-  </head>
+    	    div#img{
+                 background-color:grey;
+                 height: 50px;
+                 width:250px;
+                 border:25px solid blue;
+                 padding:25px;
+                 border-spacing: 0px;
+                 } 
+          iframe{
+                
+                margin-left: 555px;
+                border: 10px solid blue;
+          }    
+  	    </style> 
+    </head>
   <body  style="background-color:#00ffff">	
   	<h1>MY HOME PAGE</h1>
     <h5><p>this is my <mark>first </mark>view</p></h5>
@@ -92,7 +111,7 @@
     <pre><em><b>      hello
     	  this is 
     	  my first
-    	  view of rails</b></em></pre>
+    	  view of rails</b></em></pre> 
    	<a href="https://www.google.co.in/?gfe_rd=cr&ei=Yjc4VqriPKHv8wezmoF4">
     <img src="images.jpeg" " width="104" height="142"> </a>
     <p> by click on <em>image</em>i we have goto google</p>
@@ -149,11 +168,29 @@
              </td>  
            </tr>       		
         </table>
-    <div>
-    <!--<iframe src="http://www.w3schools.com/" width="500px" height="200px"></iframe> -->
-    <% @arr.each do |i| %>
-      <%= i %><br>
-    <% end %>
+    <div><br>
+    <iframe src="http://www.w3schools.com/" width="500px" height="200px"></iframe> 
+    
    <!-- helo i am not execute bcz i am comment --> 
+   <img src="images1.jpeg" width="350px" height="200px">
+   <div id="img">
+     this img width is 350px and height 200px.</div><br><br> 
+
+    <table >
+      <caption><h3>Employee_record</h3></caption>
+      <tr>
+        <th>name</th>
+        <th>address</th>
+        <th>gender</th>
+      </tr>
+   
+     <% @employee.each do |i| %>
+       <tr>
+         <td><%= i.name%></td>
+         <td><%= i.address%></td>
+         <td><%= i.gender%><br></td>
+       </tr>   
+     <% end %>
+    </table> <br><br>   
   </body>
 </html>    
