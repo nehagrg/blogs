@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104071446) do
+ActiveRecord::Schema.define(version: 20151105075658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "employee_id"
+    t.string   "comments"
+    t.integer  "speech_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "employees", force: :cascade do |t|
     t.string   "name"
@@ -23,5 +31,15 @@ ActiveRecord::Schema.define(version: 20151104071446) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "speeches", force: :cascade do |t|
+    t.integer  "employee_id"
+    t.string   "topic"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "speeches", ["employee_id"], name: "index_speeches_on_employee_id", using: :btree
 
 end
