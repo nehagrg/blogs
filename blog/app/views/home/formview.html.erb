@@ -1,9 +1,23 @@
-
-
+<div style="border:10px solid blue;margin-left:200px;margin-right:200px;color:purple;padding:10px;background-color:#ffebcd">
 <%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "firstname") %>
+<table>
+  <tr>
+    <td></td>
+    <td></td>
+    <td> <%= label_tag(:pwd,"search:") %>
+ <%= search_field(:user, :name) %>Q</td>
+</tr>
+<tr>
+  <td>
+  <%= label_tag(:q, "name") %>
+</td>
+<td>
   <%= text_field_tag(:q) %><br>
-  <%= label_tag(:q, "lastname ") %>
+</td>
+<td></td>
+</tr>
+</table>
+  <%= label_tag(:q, "address ") %>
   <%= text_field_tag(:q) %><br>
   <%= label_tag(:q, "contactno:") %>
   <%= telephone_field(:user, :phone) %><br>
@@ -11,23 +25,20 @@
   <%= date_field(:user, :born_on) %><br>
   <%= label_tag(:q, "e_mail id:") %>
   <%= email_field(:user, :address) %><br>
-  <%= label_tag(:subject, "subjectchoice:") %><br>
-  <%= check_box_tag(:subject) %>
-  <%= label_tag(:subject, "maths") %><br>
-  <%= check_box_tag(:subject) %>
-  <%= label_tag(:subject, "biology") %><br><br>
-  <%= text_area_tag(:message,"i am select this subject because", size: "24x6") %><br><br>
   <%= label_tag(:gender, "gender:") %><br>
-  <%= radio_button_tag(:gender, "child") %>
+  <%= radio_button_tag(:gender, "male") %>
   <%= label_tag(:gender, "male") %>
-  <%= radio_button_tag(:gender, "adult") %>
+  <%= radio_button_tag(:gender, "female") %>
   <%= label_tag(:gender, "female") %><br><br>
+  <%= label_tag(:subject, "field:") %><br>
+  <%= check_box_tag(:subject) %>
+  <%= label_tag(:subject, "developer") %><br>
+  <%= check_box_tag(:subject) %>
+  <%= label_tag(:subject, "tester") %><br><br>
+  <%= text_area_tag(:message,"i am select this field because", size: "24x6") %><br><br>
   <%= submit_tag("Submit") %><br>
- 
+ <%= number_field(:product, :price, in: 1.0..20.0, step: 0.5) %>
 
 <% end %>
+</div>s
 
-<%= color_field(:user, :favorite_color) %>
-<%= time_field(:task, :started_at) %>
-<%= number_field(:product, :price, in: 1.0..20.0, step: 0.5) %>
-<%= range_field(:product, :discount, in: 1..100) %>

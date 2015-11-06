@@ -1,0 +1,30 @@
+
+<!--<%= form_for @employee, url: {action: "create"}, html: {class: "employee"} do |f| %>
+  <lable for="name">name</label>
+  <%= f.text_field :name %>
+  <label for="address">address</label>
+  <%= f.text_field :address %>
+  <%= f.submit "Create" %>
+<% end %>-->
+
+
+<!--<%= form_for @employee, url: {action: "delete"}, html: {class: "employee"} do |f| %>
+  <lable for="name">name</label>
+  <%= f.text_field :name %>
+  <label for="address">address</label>
+  <%= f.text_field :address %>
+  <%= f.submit "delete" %>
+<% end %> -->
+
+
+<%= form_for @employee, url: {action: "update"}, html: {class: "employee"} do |f| %>
+  <lable for="name">name</label>
+  <%= f.text_field :name %>
+  <label for="address">address</label>
+  <%= f.text_field :address %>
+  <%= f.hidden_field :id  %>
+  <%= f.submit "edit" %>
+<% end %>
+
+
+

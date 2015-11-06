@@ -16,6 +16,16 @@ ActiveRecord::Schema.define(version: 20151105075658) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "articales", force: :cascade do |t|
+    t.integer  "Employee_id"
+    t.string   "topic"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "articales", ["Employee_id"], name: "index_articales_on_Employee_id", using: :btree
+
   create_table "comments", force: :cascade do |t|
     t.integer  "employee_id"
     t.string   "comments"

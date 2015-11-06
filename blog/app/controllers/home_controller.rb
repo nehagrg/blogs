@@ -56,9 +56,42 @@ class HomeController < ApplicationController
 
 
 
-    def formview
+    def formview    
+    end   
 
+    def form
+        @employee=Employee.all
+        @employee=Employee.new
+        @speech=Speech.new
+    end 
+
+    def create
+       
+        @employee=Employee.create(:name => params[:employee][:name],:address=> params[:employee][:address])  
+     
+    end
+
+    def delete
+       
+        @employee=Employee.where(:name => params[:employee][:name],:address=> params[:employee][:address]) 
+        @employee.delete_all
+     
+    end
+    def edit
+        
+        @employee =Employee.find(params[:id])
+        
+    end
+
+    def update
+        
+    
+         
 
         
-    end    
+     end 
+     def update_data
+     end  
+
+    
 end
