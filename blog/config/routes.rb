@@ -12,9 +12,24 @@ Rails.application.routes.draw do
    post  'employees/delete' =>'home#delete'
    get 'employees/edit' =>'home#edit'
    post  'employees/edit' =>'home#edit'
-    get 'employees/:id/edit'  => 'home#edit'
-    get '/update' => 'home#update'
-
+    get 'employees/edit/:id'  => 'home#edit'
+    post '/update/:id' => 'home#update'
+    get '/update/:id' => 'home#update'
+     patch '/create1/:id' => 'home#create1'
+     patch '/update/:id' => 'home#update'
+     get '/update_file/:id'=>'home#update_file'
+      patch '/update_data/:id' =>'home#update_data'
+     post '/update_data/:id' =>'home#update_data'
+     get '/updateddata/:id' =>'home#updateddata'
+     patch '/updateddata/:id' =>'home#updateddata'
+     get '/alluser' =>'home#alluser'
+     get '/reorder' =>'home#reorder'
+     get '/users' =>'home#users'
+      get '/search'=>'home#search'
+     post '/search'=>'home#search' 
+     patch '/search'=>'home#search'
+   
+   
 
   
    

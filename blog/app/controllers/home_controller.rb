@@ -42,7 +42,7 @@ class HomeController < ApplicationController
         @multiplejoin=Employee.joins(:speeches,:comments)
         @include=Employee.includes(:speeches).limit(3)
         @create=Employee.find_or_create_by(name: 'surbhi')
-        @initialize=Employee.find_or_initialize_by(name: 'arun')
+       # @initialize=Employee.find_or_initialize_by(name: 'arun')
         @initialize.save
         @sql=Employee.find_by_sql("SELECT * FROM employees
         INNER JOIN speeches ON employees.id = speeches.employee_id
@@ -55,14 +55,14 @@ class HomeController < ApplicationController
     end
 
 
-
+ 
     def formview    
     end   
 
     def form
         @employee=Employee.all
         @employee=Employee.new
-        @speech=Speech.new
+        
     end 
 
     def create
@@ -80,18 +80,52 @@ class HomeController < ApplicationController
     def edit
         
         @employee =Employee.find(params[:id])
-        
+  
+    end
+    def create1
+       @employee =Employee.find(params[:id])
+       
+        @employee=Employee.create(:name => params[:employee][:name],:address=> params[:employee][:address])  
+
     end
 
     def update
+         @employee =Employee.find(params[:id])
+       
+      
+        @employee.update(:name => params[:name],:address=> params[:city] ,:gender=> params[:gender]) 
+
         
-    
+       end 
+       def update_file
+          @employee=Employee.find(params[:id])
+        end
+        def update_data
+            @employee=Employee.new
+            @employee=Employee.find(params[:id])
+        end  
+        def updateddata
          
+            @employee=Employee.new
+            @employee=Employee.find(params[:id])
+           @employee.update(:name => params[:name],:address=> params[:address] ,:gender=> params[:gender]) 
+        end 
+         
+        def alluser
+             debugger
+            @employees =Employee.order(params[:sort] + ' ' + params[:direction])
 
+        end
+        def users
+            @e =Employee.order(params[:sort])
+        end
+
+        def search
+              
+            @e=Employee.find_by(:name => params[:name]) 
+
+        end  
+
+    end    
         
-     end 
-     def update_data
-     end  
-
-    
-end
+        
