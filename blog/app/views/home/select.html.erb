@@ -1,0 +1,9 @@
+<select name="gender" id="gender">
+  <option value="1">male</option>
+  <option value="2">female</option>
+ </select>
+ <select  name="gender" id="gender">
+ <%= options_for_select([['male', 1,{ 'data-size' => '2.8 million' }], ['female', 2,{ 'data-size' => '2.6 million' }]],2) %>
+</select>
+<%= select(:employee, :gender, [['male', 1], ['female', 2]]) %>
+<%= time_zone_select(:person, :time_zone) %>

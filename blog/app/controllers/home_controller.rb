@@ -91,41 +91,102 @@ class HomeController < ApplicationController
 
     def update
          @employee =Employee.find(params[:id])
-       
-      
-        @employee.update(:name => params[:name],:address=> params[:city] ,:gender=> params[:gender]) 
+         @employee.update(:name => params[:name],:address=> params[:city] ,:gender=> params[:gender]) 
+    end 
 
-        
-       end 
-       def update_file
-          @employee=Employee.find(params[:id])
-        end
-        def update_data
-            @employee=Employee.new
-            @employee=Employee.find(params[:id])
-        end  
-        def updateddata
+    def update_file
+
+        @employee=Employee.find(params[:id])
+    end
+
+    def update_data
+        @employee=Employee.new
+        employee=Employee.find(params[:id])
+    end 
+
+    def updateddata
          
-            @employee=Employee.new
-            @employee=Employee.find(params[:id])
-           @employee.update(:name => params[:name],:address=> params[:address] ,:gender=> params[:gender]) 
-        end 
+        @employee=Employee.new
+        @employee=Employee.find(params[:id])
+        @employee.update(:name => params[:name],:address=> params[:address] ,:gender=> params[:gender]) 
+    end 
          
-        def alluser
-             debugger
-            @employees =Employee.order(params[:sort] + ' ' + params[:direction])
+    def alluser
+           params[:sort] = "name"
+           params[:direction] = "asc"
+           
+         @employees =Employee.find_by(:name => params[:name]).ORDER(params[:sort] + ' ' + params[:direction])
+     end
+    
 
-        end
-        def users
-            @e =Employee.order(params[:sort])
-        end
+    
 
-        def search
+    def users
+        @e =Employee.order(params[:sort])
+    end
+
+    def search
               
-            @e=Employee.find_by(:name => params[:name]) 
+        @e=Employee.find_by(:name => params[:name])
+    end  
 
+    def select
+         @employee=Employee.new(gender: 2)
+
+    end  
+
+    def datentime
+    end   
+
+    def searching
+        if
+            @e=Employee.find_by(:name => params[:name])==blank?
+            @e=Employee.order(params[:sort])
+        else
+            redirect_to action:"users"
         end  
+    end
+    
+    def upload
+        uploaded_io = params[:employee][:name]
+        File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+        file.write(uploaded_io.read)
+        end
+    end
+    def builder
+        @employee=Employee.all
 
-    end    
+    end 
+    def finduser
+       
+         
+         if params[:direction].present? and params[:sort].present? and params[:name].present?  
+              @employee = Employee.where( params[:name]).order(params[:sort] + ' ' + params[:direction]) 
+
+         elsif params[:direction].blank? and params[:sort].blank? and params[:name].present?          
+               params[:direction] = "asc"
+               params[:sort] = "name"
+             
+               @employee = Employee.where( params[:name]).order(params[:sort] + ' ' + params[:direction])
+
+        elsif params[:direction].present? and params[:sort].present? and params[:name].blank?  
+              params[:name] = "1"
+              @employee = Employee.order(params[:sort] + ' ' + params[:direction])
+
+        elsif params[:direction].blank? and params[:sort].blank? and params[:name].blank?            
+              params[:direction] = "asc"
+              params[:sort] = "name"
+              params[:name] = "1"
+              @employee= Employee.order(params[:sort] + ' ' + params[:direction])
+         
+        end 
+    end
+    def find
+        redirect_to "finduser?name=#{params[:name]}"
+     end   
+
+
+
+end           
         
         

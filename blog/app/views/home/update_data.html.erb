@@ -1,9 +1,9 @@
 <%=  form_for @employee, url: {action: "updateddata"},html: {class: "emp"} do |e| %>
-<lable for="id">name</label>
+<lable for="name">name</label>
   <%= e.text_field :name%>
-  <lable for="id">address</label>
+  <lable for="address">address</label>
   <%= e.text_field :address%>
-  <lable for="id">gender</label>
+  <lable for="gender">gender</label>
   <%= e.text_field :gender%>
   <%= e.submit "updateddata" %>
 <% end %> 
