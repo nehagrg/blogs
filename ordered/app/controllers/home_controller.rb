@@ -3,12 +3,15 @@ class HomeController < ApplicationController
 	  @orders = Order.where(customer_id: '3')
 	  @c= Customer.first
 	  @o = @c.orders.first
-	  @c.name == @o.customer.name
+	 # @c.name == @o.Customer.name
       @customer=Customer.all
-	  #@customer=@order.Customer
+	 # @customer=@order.Customer
 	  #@order.customer = @customer
 	  #debugger
-	  #@customer = @order.build_customers(name: "John Doe")
+	  #@order=Orders.all
+	  @order=Customer.all
+	  
+	  @customer = @order.create_customer(:name=> "neha")
 	
 
 	  #if @order.Customer.nil?
