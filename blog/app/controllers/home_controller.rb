@@ -183,10 +183,15 @@ class HomeController < ApplicationController
     end
     def find
         redirect_to "finduser?name=#{params[:name]}"
-     end   
+    end 
+
+    def association
+        @employee
+    end  
 
 
 
 end           
+        
         
         
