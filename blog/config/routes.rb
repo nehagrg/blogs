@@ -23,6 +23,7 @@ Rails.application.routes.draw do
      get '/update_data/:id' =>'home#update_data'
      get '/updateddata/:id' =>'home#updateddata'
      patch '/updateddata/:id' =>'home#updateddata'
+     post '/updateddata/:id' =>'home#updateddata'
      get '/alluser' =>'home#alluser' 
      get '/reorder' =>'home#reorder'
      get '/users' =>'home#users'
@@ -38,6 +39,8 @@ Rails.application.routes.draw do
       get '/finduser'=>'home#finduser'
       put '/find' =>'home#find'
       get '/find' =>'home#find'
+      get '/texteditor'=>'home#texteditor'
+      get '/whatever'=>'home#whatever'
    
 
   

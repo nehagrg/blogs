@@ -108,7 +108,7 @@ class HomeController < ApplicationController
          
         @employee=Employee.new
         @employee=Employee.find(params[:id])
-        @employee.update(:name => params[:name],:address=> params[:address] ,:gender=> params[:gender]) 
+        @employee.update(:name => 'shyam',:address=> 'fbd' ,:gender=> 'male') 
     end 
          
     def alluser
@@ -188,6 +188,11 @@ class HomeController < ApplicationController
     def association
         @employee
     end  
+
+    def texteditor
+     end 
+     def whatever
+     end  
 
 
 
