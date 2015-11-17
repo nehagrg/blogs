@@ -1,0 +1,6 @@
+ debugger
+<%= form_for @customer, url: {action: "delete"}, html: {class: "customer"} do |c| %>
+< label_for= "name">name</label>
+<%= c.text_field :name %>
+<%= c.submit "delete" %>
+<% end %>

@@ -1,0 +1,42 @@
+<%= form_tag("/find", method: "get") do %>
+  <%= label_tag(:name, "name:") %>
+  <%= text_field_tag(:name) %>
+  <%= submit_tag("find") %>
+<% end %>
+
+
+
+<html>
+<head>
+	<title>alluser</title>
+	<style>
+  table{  
+            border: 10px solid blue;         
+  	       	height:400px;
+  	  	    width:400px;
+  	  	    margin-left: 420px
+  	            }  
+  	         th{
+  	         	text-align: left;
+  	            }
+  	    </style>        
+</head>
+<body>
+	<table>
+		<caption>alluser</caption>
+		<tr>
+			<th><%= link_to "name", :sort=>"name" %></th>
+			<th>address</th>
+			<th>gender</th>
+		</tr>
+		<%   @user.each do |i| %>
+       <tr>
+         <td><%= i.name%></td>
+         <td><%= i.city%></td>
+         <td><%= i.gender%><br></td>
+       </tr>   
+     <% end %>  
+    </table> <br><br>  
+    
+    </body>
+</html>    	

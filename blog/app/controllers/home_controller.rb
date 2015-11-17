@@ -101,14 +101,14 @@ class HomeController < ApplicationController
 
     def update_data
         @employee=Employee.new
-        employee=Employee.find(params[:id])
+        @employee=Employee.find(params[:id])
     end 
 
     def updateddata
          
         @employee=Employee.new
         @employee=Employee.find(params[:id])
-        @employee.update(:name => 'shyam',:address=> 'fbd' ,:gender=> 'male') 
+        @employee.update(:name => 'rahul',:address=> 'fbd' ,:gender=> 'male') 
     end 
          
     def alluser

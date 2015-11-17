@@ -1,5 +1,5 @@
 <%=  form_for @employee, url: {action: "update_data"},html: {class: "emp"} do |e| %>
-<lable for="id">name</label>
+<lable for="id">id</label>
   <%= e.text_field :id%>
   <%= e.submit "update_data" %>
 <% end %> 
