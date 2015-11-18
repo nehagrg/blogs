@@ -49,8 +49,8 @@ class HomeController < ApplicationController
     end 
     helper_method :sort_column, :sort_direction
     def user
-      @user= User.new
-      @user = User.order(sort_column + ' ' + sort_direction)
+    
+      @user = User.all
         
     end
     private
