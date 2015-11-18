@@ -1,8 +1,18 @@
 class HomeController < ApplicationController
-	def index
+	 helper_method :sort_column, :sort_direction
+  def index
 		@c=Customer.first
 		@o = @c.orders.first
+     @user = User.order(sort_column + ' ' + sort_direction)
 	end	
+  private
+  def sort_column
+    params[:sort] || "name"
+  end
+  
+  def sort_direction
+    params[:direction] || "asc"
+  end
 
 	def new
 		@customer=Customer.new
@@ -32,35 +42,16 @@ class HomeController < ApplicationController
         @customers = Customer.find(:all, :order => params[:filter])
     end 
 
-    def user
-        @user=User.all
-         
-         if params[:direction].present? and params[:sort].present? and params[:name].present?  
-            @user = User.where(name: params[:name]).order(params[:sort] + ' ' + params[:direction])        
-         elsif params[:direction].blank? and params[:sort].blank? and params[:name].present?          
-            params[:direction] = "asc"
-            params[:sort] = "name"
-             
-            @user = User.where(name: params[:name]).order(params[:sort] + ' ' + params[:direction])       
-         elsif params[:direction].present? and params[:sort].present? and params[:name].blank?  
-            params[:name] = "1"
-            @user = User.order(params[:sort] + ' ' + params[:direction])
-         elsif params[:direction].blank? and params[:sort].blank? and params[:name].blank?      
-            params[:direction] = "asc"
-            params[:sort] = "name"
-            params[:name] = "1"
-             
-            @user = User.order(params[:sort] + ' ' + params[:direction])
-         
-         end
-    end 
+    
+    
     def find
-        redirect_to :action=>"user"
+        
     end 
     helper_method :sort_column, :sort_direction
-  
-    def alluser
-      @user = User.all.order(sort_column + " " + sort_direction)
+    def user
+      @user= User.new
+      @user = User.order(sort_column + ' ' + sort_direction)
+        
     end
     private
   def sort_column
@@ -70,8 +61,13 @@ class HomeController < ApplicationController
   def sort_direction
     params[:direction] || "asc"
   end
-  
-  
+
+    def search
+              
+        @user=User.find_by(:name => params[:name])
+    end  
+    
+    
   
   
 	

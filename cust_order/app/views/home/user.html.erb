@@ -1,7 +1,7 @@
-<%= form_tag("/find", method: "get") do %>
+<%= form_tag("/search", method: "get") do %>
   <%= label_tag(:name, "name:") %>
   <%= text_field_tag(:name) %>
-  <%= submit_tag("find") %>
+  <%= submit_tag("search") %>
 <% end %>
 
 
@@ -25,17 +25,18 @@
 	<table>
 		<caption>alluser</caption>
 		<tr>
-			<th><%= link_to "name", :sort=>"name" %></th>
-			<th>address</th>
-			<th>gender</th>
+			<th><%= sortable "name" %></th>
+			<th><%= sortable "city" %></th>
+			<th><%= sortable "gender" %></th>
 		</tr>
-		<%   @user.each do |i| %>
+    <% debugger %>
+		<% @user.each do |i| %>
        <tr>
          <td><%= i.name%></td>
          <td><%= i.city%></td>
          <td><%= i.gender%><br></td>
        </tr>   
-     <% end %>  
+    <% end %>  
     </table> <br><br>  
     
     </body>

@@ -182,7 +182,7 @@ class HomeController < ApplicationController
         end 
     end
     def find
-        redirect_to "finduser?name=#{params[:name]}"
+        redirect_to :action=>"search"
     end 
 
     def association
